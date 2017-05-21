@@ -42,8 +42,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Lending Club API'
-copyright = u'2013, Jeremy Gillick'
+project = 'Lending Club API'
+copyright = '2013, Jeremy Gillick'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -188,8 +188,8 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'LendingClubAPI.tex', u'Lending Club API Documentation',
-   u'Jeremy Gillick', 'manual'),
+  ('index', 'LendingClubAPI.tex', 'Lending Club API Documentation',
+   'Jeremy Gillick', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -218,8 +218,8 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'lendingclubapi', u'Lending Club API Documentation',
-     [u'Jeremy Gillick'], 1)
+    ('index', 'lendingclubapi', 'Lending Club API Documentation',
+     ['Jeremy Gillick'], 1)
 ]
 
 # If true, show URL addresses after external links.
@@ -232,8 +232,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'LendingClubAPI', u'Lending Club API Documentation',
-   u'Jeremy Gillick', 'LendingClubAPI', 'One line description of project.',
+  ('index', 'LendingClubAPI', 'Lending Club API Documentation',
+   'Jeremy Gillick', 'LendingClubAPI', 'One line description of project.',
    'Miscellaneous'),
 ]
 

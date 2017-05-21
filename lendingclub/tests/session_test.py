@@ -4,8 +4,8 @@ import sys
 import os
 import unittest
 import subprocess
-from logger import TestLogger
-from server import ServerThread
+from .logger import TestLogger
+from .server import ServerThread
 
 sys.path.insert(0, '.')
 sys.path.insert(0, '../')

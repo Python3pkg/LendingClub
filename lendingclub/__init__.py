@@ -924,7 +924,7 @@ class Order:
             assert 'loan_id' in loan and type(loan['loan_id']) is int, 'loan_id must be a number or dictionary containing a loan_id value'
             loan_id = loan['loan_id']
 
-        assert type(loan_id) in [str, unicode, int], 'Loan ID must be an integer number or a string'
+        assert type(loan_id) in [str, str, int], 'Loan ID must be an integer number or a string'
         self.loans[loan_id] = amount
 
     def update(self, loan_id, amount):
@@ -1066,7 +1066,7 @@ class Order:
         assert self.order_id > 0, 'You need to execute this order before you can assign to a portfolio.'
 
         # Get loan IDs as a list
-        loan_ids = self.loans.keys()
+        loan_ids = list(self.loans.keys())
 
         # Make a list of 1 order ID per loan
         order_ids = [self.order_id]*len(loan_ids)
@@ -1091,7 +1091,7 @@ class Order:
         #
         # Stage all the loans to the order
         #
-        loan_ids = self.loans.keys()
+        loan_ids = list(self.loans.keys())
         self.__log('Staging loans {0}'.format(loan_ids))
 
         # LendingClub requires you to search for the loans before you can stage them
@@ -1101,7 +1101,7 @@ class Order:
             raise LendingClubError('Could not stage the loans. The number of loans in your batch does not match totalRecords. {0} != {1}'.format(len(self.loans), results['totalRecords']), results)
 
         # Stage each loan
-        for loan_id, amount in self.loans.iteritems():
+        for loan_id, amount in self.loans.items():
             payload = {
                 'method': 'addToPortfolio',
                 'loan_id': loan_id,

@@ -4,8 +4,8 @@ import re
 import sys
 import json as pyjson
 import unittest
-from logger import TestLogger
-from server import ServerThread
+from .logger import TestLogger
+from .server import ServerThread
 
 sys.path.insert(0, '.')
 sys.path.insert(0, '../')
@@ -325,7 +325,7 @@ class TestSavedFilters(unittest.TestCase):
             saved.validate(self.loan_list)
             assert False, 'Test should fail on exclude_existing'
         except FilterValidationError as e:
-            print e.criteria
+            print(e.criteria)
             self.assertTrue(matches('exclude loans', e.criteria))
 
     def test_validation_2(self):
@@ -344,7 +344,7 @@ class TestSavedFilters(unittest.TestCase):
             saved.validate(self.loan_list)
             assert False, 'Test should fail on loan_purpose'
         except FilterValidationError as e:
-            print e.criteria
+            print(e.criteria)
             self.assertTrue(matches('loan purpose', e.criteria))
 
     def test_validation_2_1(self):
@@ -377,7 +377,7 @@ class TestSavedFilters(unittest.TestCase):
             saved.validate(self.loan_list)
             assert False, 'Test should fail on grade'
         except FilterValidationError as e:
-            print e.criteria
+            print(e.criteria)
             self.assertTrue(matches('grade', e.criteria))
 
 

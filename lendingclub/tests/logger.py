@@ -54,16 +54,16 @@ class TestLogger():
 
     def error(self, msg):
         self.errors.append(msg)
-        print '\nLOG ERROR: {0}'.format(msg)
+        print('\nLOG ERROR: {0}'.format(msg))
 
         # Traceback
         exc_type, exc_value, exc_traceback = sys.exc_info()
         traceback.print_tb(exc_traceback, limit=2, file=sys.stdout)
 
     def warning(self, msg):
-        print '\nLOG WARNING: {0}\n'.format(msg)
+        print('\nLOG WARNING: {0}\n'.format(msg))
         self.warnings.append(msg)
 
     def debug(self, msg):
-        print 'LOG DEBUG: {0}'.format(msg)
+        print('LOG DEBUG: {0}'.format(msg))
         self.debugs.append(msg)

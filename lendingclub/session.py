@@ -150,7 +150,7 @@ class Session:
 
         # Get them from the user
         if email is None:
-            email = raw_input('Email:')
+            email = input('Email:')
             self.email = email
         if password is None:
             password = getpass.getpass()
@@ -184,7 +184,7 @@ class Session:
         # Debugging
         self.__log('Status code: {0}'.format(response.status_code))
         self.__log('Redirected to: {0}'.format(response_url))
-        self.__log('Cookies: {0}'.format(str(response.cookies.keys())))
+        self.__log('Cookies: {0}'.format(str(list(response.cookies.keys()))))
 
         # Show query and data that the server received
         if 'x-echo-query' in response.headers:

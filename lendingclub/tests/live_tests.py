@@ -4,7 +4,7 @@ import sys
 import unittest
 import getpass
 from random import choice
-from logger import TestLogger
+from .logger import TestLogger
 
 sys.path.insert(0, '.')
 sys.path.insert(0, '../')
@@ -141,20 +141,20 @@ class LiveTests(unittest.TestCase):
             self.assertEqual(grade, note['rate'][0])
 
 
-print """
+print("""
 !!!WARNING !!!
 This is a live test of the module communicating with LendingClub.com with your account!!!
 Your account must have at least $25 to continue. Tests will attempt to get full API test
 coverage coming just short of investing money from your account.
 
 However, this is not guaranteed if something in the tests are broken. Please continue at your own risk.
-"""
-res = raw_input('Continue with the tests? [yes/no]')
+""")
+res = input('Continue with the tests? [yes/no]')
 if res.lower() != 'yes':
     exit()
 
-print '\n\nEnter a valid LendingClub account information...'
-email = raw_input('Email:')
+print('\n\nEnter a valid LendingClub account information...')
+email = input('Email:')
 password = getpass.getpass()
 
 

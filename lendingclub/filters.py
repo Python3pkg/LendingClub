@@ -160,7 +160,7 @@ class Filter(dict):
         """
         Merge dictionary objects recursively, by only updating keys existing in to_dict
         """
-        for key, value in from_dict.iteritems():
+        for key, value in from_dict.items():
 
             # Only if the key already exists
             if key in to_dict:
@@ -295,7 +295,7 @@ class Filter(dict):
         }
 
         # Throw an error if the loan does not contain one of the criteria keys that this filter has
-        for key, criteria in req.iteritems():
+        for key, criteria in req.items():
             if criteria in self and key not in loan:
                 raise FilterValidationError('Loan does not have a "{0}" value.'.format(key), loan, criteria)
 
@@ -350,7 +350,7 @@ class Filter(dict):
         self.__normalize()
 
         # Get the template
-        tmpl_source = unicode(open(self.tmpl_file).read())
+        tmpl_source = str(open(self.tmpl_file).read())
 
         # Process template
         compiler = Compiler()
@@ -525,7 +525,7 @@ class SavedFilter(Filter):
                     continue
 
                 # Start of a block
-                if char in blockChars.keys():
+                if char in list(blockChars.keys()):
                     blockTracker.insert(0, blockChars[char])
 
                 # End of a block, remove from block path
@@ -610,12 +610,12 @@ class SavedFilter(Filter):
                         if type(raw_values) is list:
 
                             # A single non string value, is THE value
-                            if len(raw_values) == 1 and type(raw_values[0]['value']) not in [str, unicode]:
+                            if len(raw_values) == 1 and type(raw_values[0]['value']) not in [str, str]:
                                 value = raw_values[0]['value']
 
                             # Create a dict of values: name = True
                             for val in raw_values:
-                                if type(val['value']) in [str, unicode]:
+                                if type(val['value']) in [str, str]:
                                     value[val['value']] = True
 
                         # A single value
@@ -685,7 +685,7 @@ class FilterByLoanID(Filter):
 
         # Convert a list to comma delimited string
         if type(loan_id) is list:
-            loan_id = map(str, loan_id)
+            loan_id = list(map(str, loan_id))
             loan_id = ','.join(loan_id)
 
         self['loan_id'] = loan_id

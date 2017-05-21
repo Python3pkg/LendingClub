@@ -3,7 +3,7 @@
 import sys
 import unittest
 import getpass
-from logger import TestLogger
+from .logger import TestLogger
 
 sys.path.insert(0, '.')
 sys.path.insert(0, '../')
@@ -29,12 +29,12 @@ class LiveTestSession(unittest.TestCase):
         Test login with credentials from the user
         """
 
-        print '\n\nEnter a valid LendingClub account information...'
-        email = raw_input('Email:')
+        print('\n\nEnter a valid LendingClub account information...')
+        email = input('Email:')
         password = getpass.getpass()
 
         self.assertTrue(self.session.authenticate(email, password))
-        print 'Authentication successful'
+        print('Authentication successful')
 
     def test_invalid_login(self):
         """ test_invalid_password
